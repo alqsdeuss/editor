@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material-darker.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gradient-canvas"></div>
+  <div class="container">
+    <div class="editor-section">
+      <div class="tabs">
+        <button class="tab-button active" onclick="openTab('html')">
+          <i class="fa-brands fa-html5"></i> HTML
+        </button>
+        <button class="tab-button" onclick="openTab('css')">
+          <i class="fa-brands fa-css3-alt"></i> CSS
+        </button>
+        <button class="tab-button" onclick="openTab('js')">
+            <i class="fa-brands fa-js"></i> JS
+        </button>
+      </div>
+      
+      <div class="code-editor">
+        <textarea id="html" class="code active">
+<!-- Replace with your HTML Code (Leave empty if not needed) -->
+        </textarea>
+
+        <textarea id="css" class="code">
+/* Replace with your CSS Code (Leave empty if not needed) */
+        </textarea>
+
+        <textarea id="js" class="code">
+/* Replace with your JS Code (Leave empty if not needed) */
+        </textarea>
+      </div>
+
+      <div class="save-buttons">
+        <button class="save-button" id="save-line">
+          <i class="fa-solid fa-floppy-disk"></i> Save Line
+        </button>
+        <button class="save-all-button" id="save-all">
+          <i class="fa-solid fa-floppy-disk"></i> Save All
+        </button>
+      </div>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output-section">
+      <iframe id="output" class="output-window"></iframe>
+      <div id="notification-container"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

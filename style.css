@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Fira Code', monospace;
+    background: linear-gradient(135deg, #0c0d0d, #656a95);
+    color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* gredient sent.rocks */
+  #gradient-canvas {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: linear-gradient(135deg, #0c0d0d, #656a95, #0c0d0d, #0c0d0d);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  .container {
+    display: flex;
+    width: 95%;
+    height: 85vh;
+    max-width: 1600px;
+    background-color: #2d2d2d;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .editor-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 15px 0 0 15px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #3a3d41;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+  
+  .tab-button {
+    background-color: #3a3d41;
+    border: 2px solid transparent;
+    color: #dcdcdc;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border-radius: 10px;
+  }
+  
+  .tab-button.active {
+    background-color: #007acc;
+    color: #fff;
+    border-color: #005f99;
+  }
+  
+  .tab-button:hover {
+    background-color: #005f99;
+    color: #fff;
+    border-color: #007acc;
+  }
+  
+  .code-editor {
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+  }
+  
+  .CodeMirror {
+    height: 100%;
+    font-size: 14px;
+    color: #dcdcdc;
+    border: 1px solid #3a3d41;
+    border-radius: 10px;
+  }
+
+  .save-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .save-button, .save-all-button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #007acc, #005f99);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .save-button:hover, .save-all-button:hover {
+    background: linear-gradient(135deg, #005f99, #007acc);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .save-button i, .save-all-button i {
+    margin-right: 8px;
+  }
+
+  .output-section {
+    width: 50%;
+    background-color: #1c1c1c;
+    padding: 15px;
+    border-left: 1px solid #3a3d41;
+    position: relative;
+    border-radius: 0 15px 15px 0;
+  }
+
+  .output-window {
+    width: 100%;
+    height: calc(100% - 65px); /* not */
+    border: none;
+    background-color: #fff;
+    box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  #notification-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 350px;
+    z-index: 10;
+  }
+  
+  .notification {
+    background-color: #ff6363;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  
+  .notification i {
+    margin-right: 10px;
+  }
+  
+  .notification button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 0 5px;
+  }
+  
+  .notification-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+  }
+  
+  .notification-bar-inner {
+    height: 100%;
+    background: #ff8888;
+    width: 100%;
+    transition: width 10s linear;
+  }
+  
+  @keyframes fadeout {
+    0% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+  }
+  
