@@ -82,7 +82,6 @@ let htmlEditor = CodeMirror.fromTextArea(document.getElementById('html'), {
       return;
     }
   
-    // Save each file
     saveFile(htmlEditor.getValue(), `savaiuapepula${htmlEditor.getValue().split('\n').length}.html`);
     saveFile(cssEditor.getValue(), `savaiuapepula${cssEditor.getValue().split('\n').length}.css`);
     saveFile(jsEditor.getValue(), `savaiuapepula${jsEditor.getValue().split('\n').length}.js`);
