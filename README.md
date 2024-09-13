@@ -1,1 +1,1 @@
-# a simple online editor made by me ric, samir, andrei, gabriel
+# a simple online editor made by me ric, samir, andrei, gabriel, denisa, stefan
